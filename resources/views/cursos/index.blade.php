@@ -29,7 +29,7 @@
                 <a href="{{route('cursos.show', $curso)}}">{{$curso->name}}</a>
                 {{-- {{$curso->name}} --}}
                 <br>
-                {{-- {{route('cursos.show', $curso)}} --}}
+            {{route('cursos.show', $curso)}}
             </li>
             @endforeach
         </ul>

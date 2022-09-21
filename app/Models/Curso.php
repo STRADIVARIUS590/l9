@@ -19,4 +19,5 @@ class Curso extends Model
         // return $this->getKeyName();
         return 'slug';
     }
-}
+}   
+

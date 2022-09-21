@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-use App\Mail\ContactanosMailable;
-use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +39,8 @@ Route::get('cursos/{curso}/{categoria?}',  [CursoController::class, 'show']);
 // grupo de rutas
 
  
-
-/* Route::controller(CursoController::class)->group(function(){
+/*
+Route::controller(CursoController::class)->group(function(){
     Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');
    
     Route::get('cursos/', 'index')->name('cursos.index');
@@ -57,8 +57,8 @@ Route::get('cursos/{curso}/{categoria?}',  [CursoController::class, 'show']);
 
 }); */
 
-// Route::resource('asignatura', CursoController::class)->parameters(['asignatura' => 'curso'])->names('cursos');
-Route::resource('cursos', CursoController::class);
+Route::resource('asignatura', CursoController::class)->parameters(['asignatura' => 'curso'])->names('cursos');
+//Route::resource('cursos', CursoController::class)->names('cursos');
 
 
 /* Route::get('cursos/{curso}/{categoria?}', function($curso, $categoria  = null){
@@ -71,8 +71,15 @@ Route::resource('cursos', CursoController::class);
 
 Route::view('nosotros', 'nosotros')->name('nosotros');// view para mostrar contenido estatico
 
-Route::get('contactanos', function(){
-    $correo = new ContactanosMailable;
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
+
+//Route::get('contactanos', function(){
+/*     $correo = new ContactanosMailable;
     Mail::to('joel.uss1728@gmail.com')->send($correo);
-    return 'mensaje enviado !';
-});
+    return 'mensaje enviado !'; */
+
+
+//})->name('contactanos.index');
+
+
+Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');

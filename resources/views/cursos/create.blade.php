@@ -58,6 +58,8 @@
         <small>{{$message}}</small>
         <br>
         @enderror
+
+        <input type='text' name='slug'> 
         <button type="submit">Enviar formulario </button>
     </form>
 @endsection

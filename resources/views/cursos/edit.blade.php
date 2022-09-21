@@ -38,6 +38,7 @@
                 <small><br>{{$message}}<br></small>
             @enderror
             </label>
+            <input type='text' name='slug' value="{{old('slug', $curso->slug)}}"> 
 
             <button type="submit">Actualizar formulario</button>
     </form>

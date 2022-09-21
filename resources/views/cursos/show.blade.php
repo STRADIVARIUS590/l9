@@ -19,7 +19,7 @@
     <h1>Bienvenido al curso de {{$curso->name}}</h1>
     <a href="{{route('cursos.index')}}">Volver a cursos</a> 
     <br>
-    <a href="{{route('cursos.edit', $curso->id)}}">Editar Curso</a>
+    <a href="{{route('cursos.edit', $curso)}}">Editar Curso</a>
     <p><strong>Categoria: {{$curso->categoria}}</strong></p>
 
     <p>{{$curso->description}}</p>
